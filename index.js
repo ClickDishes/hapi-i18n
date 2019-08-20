@@ -78,10 +78,6 @@ exports.plugin = {
       }
       var response = request.response;
 
-      if (Boom.isBoom(response)) {
-        return response;
-      }
-
       if (response.variety === 'view') {
         response.source.context = Hoek.merge(response.source.context || {}, request.i18n);
         response.source.context.languageCode = request.i18n.getLocale();
